@@ -52,6 +52,30 @@ int main( void )
     // End of window creation
     // =========================================================================
     
+    // Define vertices
+    const float vertices[] = {
+        // x     y     z
+        -0.5f, -0.5f, 0.0f, //Z coordinate unused for now as triangle is 2D, not 3D
+         0.5f, -0.5f, 0.0f,
+         0.0f,  0.5f, 0.0f
+    };
+
+    // Create the Vertex Array Object (VAO)
+    unsigned int VAO;
+    glGenVertexArrays(1, &VAO);
+    glBindVertexArray(VAO);
+
+    // Compile shader program
+    unsigned int shaderID = LoadShaders("vertexShader.glsl", "fragmentShader.glsl");
+
+    // Create Vertex Buffer Object (VBO)
+    unsigned int VBO;
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+
+
 	// Ensure we can capture keyboard inputs
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
     
@@ -68,6 +92,7 @@ int main( void )
 		// Swap buffers
 		glfwSwapBuffers(window);
 		glfwPollEvents();
+        //
 	}
     
 	// Close OpenGL window and terminate GLFW
