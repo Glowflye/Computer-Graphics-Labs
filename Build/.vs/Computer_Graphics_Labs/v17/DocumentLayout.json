@@ -1,0 +1,40 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CGL\\Computer-Graphics-Labs\\Build\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{98EE7445-16A7-3335-880E-F3964CE59D7F}|Lab04_Vectors_and_matrices.vcxproj|D:\\CGL\\Computer-Graphics-Labs\\Lab04_Vectors_and_matrices\\Lab04_Vectors_and_matrices.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Lab04_Vectors_and_matrices.cpp",
+              "DocumentMoniker": "D:\\CGL\\Computer-Graphics-Labs\\Lab04_Vectors_and_matrices\\Lab04_Vectors_and_matrices.cpp",
+              "RelativeDocumentMoniker": "..\\Lab04_Vectors_and_matrices\\Lab04_Vectors_and_matrices.cpp",
+              "ToolTip": "D:\\CGL\\Computer-Graphics-Labs\\Lab04_Vectors_and_matrices\\Lab04_Vectors_and_matrices.cpp",
+              "RelativeToolTip": "..\\Lab04_Vectors_and_matrices\\Lab04_Vectors_and_matrices.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAG0AAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-12T13:22:52.509Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
