@@ -5,5 +5,5 @@ if [%1]==[--debugger] (
 	SHIFT
 )
 
-"D:\CGL\Computer-Graphics-Labs\Build\Debug\Lab07_Moving_the_camera.exe"  
+"D:\Temp\Computer-Graphics-Labs\Build\Debug\Lab07_Moving_the_camera.exe"  
 pause

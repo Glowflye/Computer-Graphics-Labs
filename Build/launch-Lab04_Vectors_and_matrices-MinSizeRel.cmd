@@ -5,5 +5,5 @@ if [%1]==[--debugger] (
 	SHIFT
 )
 
-"D:\CGL\Computer-Graphics-Labs\Build\MinSizeRel\Lab04_Vectors_and_matrices.exe"  
+"D:\Temp\Computer-Graphics-Labs\Build\MinSizeRel\Lab04_Vectors_and_matrices.exe"  
 pause

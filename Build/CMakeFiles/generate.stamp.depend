@@ -21,10 +21,6 @@ C:/Program Files/CMake/share/cmake-3.29/Modules/Platform/Windows-MSVC-CXX.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/Platform/Windows-MSVC.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/Platform/Windows.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/Platform/WindowsPaths.cmake
-D:/CGL/Computer-Graphics-Labs/Build/CMakeFiles/3.29.5/CMakeCCompiler.cmake
-D:/CGL/Computer-Graphics-Labs/Build/CMakeFiles/3.29.5/CMakeCXXCompiler.cmake
-D:/CGL/Computer-Graphics-Labs/Build/CMakeFiles/3.29.5/CMakeRCCompiler.cmake
-D:/CGL/Computer-Graphics-Labs/Build/CMakeFiles/3.29.5/CMakeSystem.cmake
 D:/CGL/Computer-Graphics-Labs/CMakeLists.txt
 D:/CGL/Computer-Graphics-Labs/external/rpavlik-cmake-modules-fe2273/CleanDirectoryList.cmake
 D:/CGL/Computer-Graphics-Labs/external/rpavlik-cmake-modules-fe2273/CreateLaunchers.cmake
@@ -32,3 +28,7 @@ D:/CGL/Computer-Graphics-Labs/external/rpavlik-cmake-modules-fe2273/ListCombinat
 D:/CGL/Computer-Graphics-Labs/external/rpavlik-cmake-modules-fe2273/MSVCMultipleProcessCompile.cmake
 D:/CGL/Computer-Graphics-Labs/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.cmd.in
 D:/CGL/Computer-Graphics-Labs/external/rpavlik-cmake-modules-fe2273/launcher-templates/vcxproj.user.in
+D:/Temp/Computer-Graphics-Labs/Build/CMakeFiles/3.29.5/CMakeCCompiler.cmake
+D:/Temp/Computer-Graphics-Labs/Build/CMakeFiles/3.29.5/CMakeCXXCompiler.cmake
+D:/Temp/Computer-Graphics-Labs/Build/CMakeFiles/3.29.5/CMakeRCCompiler.cmake
+D:/Temp/Computer-Graphics-Labs/Build/CMakeFiles/3.29.5/CMakeSystem.cmake
