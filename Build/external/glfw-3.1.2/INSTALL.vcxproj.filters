@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Tia\Documents\GitHub\Computer-Graphics-Labs\Build\CMakeFiles\8fed4e3a100927c73578dd41cf48c400\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{B209F8DE-BFD8-37C7-92E5-C12113A8D96E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

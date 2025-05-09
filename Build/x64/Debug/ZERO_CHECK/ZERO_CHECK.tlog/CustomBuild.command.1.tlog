@@ -1,0 +1,10 @@
+^C:\USERS\TIA\DOCUMENTS\GITHUB\COMPUTER-GRAPHICS-LABS\BUILD\CMAKEFILES\D80E96CA5F8D45420458B89916C0BB31\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Tia/Documents/GitHub/Computer-Graphics-Labs -BC:/Users/Tia/Documents/GitHub/Computer-Graphics-Labs/Build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Tia/Documents/GitHub/Computer-Graphics-Labs/Build/Computer_Graphics_Labs.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

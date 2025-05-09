@@ -1,0 +1,4 @@
+﻿  Lab07_Moving_the_camera.cpp
+C:\Users\Tia\Documents\GitHub\Computer-Graphics-Labs\Lab07_Moving_the_camera\Lab07_Moving_the_camera.cpp(262,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Tia\Documents\GitHub\Computer-Graphics-Labs\Lab07_Moving_the_camera\Lab07_Moving_the_camera.cpp(289,27): warning C4018: '<': signed/unsigned mismatch
+  Lab07_Moving_the_camera.vcxproj -> C:\Users\Tia\Documents\GitHub\Computer-Graphics-Labs\Build\Debug\Lab07_Moving_the_camera.exe

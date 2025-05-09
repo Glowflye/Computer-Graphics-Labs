@@ -12,6 +12,19 @@
 // Function prototypes
 void keyboardInput(GLFWwindow *window);
 
+// Create camera object - ADDED
+Camera camera(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, -2.0f));
+
+// Object struct - ADDED
+struct Object
+{
+    glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f);
+    glm::vec3 rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+    glm::vec3 scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    float angle = 0.0f;
+    std::string name;
+};
+
 int main( void )
 {
     // =========================================================================
@@ -43,6 +56,9 @@ int main( void )
         return -1;
     }
     glfwMakeContextCurrent(window);
+
+    // Enable depth test - HERE IS AFTER WINDOW CREATION
+    glEnable(GL_DEPTH_TEST);
 
     // Initialize GLEW
     glewExperimental = true; // Needed for core profile
@@ -198,6 +214,33 @@ int main( void )
     unsigned int textureID;
     textureID = glGetUniformLocation(shaderID, "texture");
     glUniform1i(textureID, 0);
+
+    // Cube positions - ADDED
+    glm::vec3 positions[] = {
+        glm::vec3(0.0f,  0.0f,  0.0f),
+        glm::vec3(2.0f,  5.0f, -10.0f),
+        glm::vec3(-3.0f, -2.0f, -3.0f),
+        glm::vec3(-4.0f, -2.0f, -8.0f),
+        glm::vec3(2.0f,  2.0f, -6.0f),
+        glm::vec3(-4.0f,  3.0f, -8.0f),
+        glm::vec3(0.0f, -2.0f, -5.0f),
+        glm::vec3(4.0f,  2.0f, -4.0f),
+        glm::vec3(2.0f,  0.0f, -2.0f),
+        glm::vec3(-1.0f,  1.0f, -2.0f)
+    };
+
+    // Add cubes to objects vector
+    std::vector<Object> objects;
+    Object object;
+    object.name = "cube";
+    for (unsigned int i = 0; i < 10; i++)
+    {
+        object.position = positions[i];
+        object.rotation = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.scale = glm::vec3(0.5f, 0.5f, 0.5f);
+        object.angle = Maths::radians(20.0f * i);
+        objects.push_back(object);
+    }
     
     // Render loop
     while (!glfwWindowShouldClose(window))
@@ -207,7 +250,9 @@ int main( void )
         
         // Clear the window
         glClearColor(0.2f, 0.2f, 0.2f, 0.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+        //glClear(GL_COLOR_BUFFER_BIT);
+        // Clear the window - ADDED
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // Send the VBO to the GPU
         glEnableVertexAttribArray(0);
@@ -219,6 +264,60 @@ int main( void )
         glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
         glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
         
+        // Calculate the model matrix
+        float angle = Maths::radians(glfwGetTime() * 360.0f / 3.0f);
+        glm::mat4 translate = Maths::translate(glm::vec3(0.0f, 0.0f, -2.0f));
+        glm::mat4 scale = Maths::scale(glm::vec3(0.5f, 0.5f, 0.5f));
+        glm::mat4 rotate = Maths::rotate(angle, glm::vec3(0.0f, 1.0f, 0.0f));
+        glm::mat4 model = translate * rotate * scale;
+
+        //// Calculate the view matrix
+        //glm::mat4 view = glm::lookAt(glm::vec3(1.0f, 1.0f, 1.0f),  // eye
+        //    glm::vec3(0.0f, 0.0f, -2.0f), // target
+        //    glm::vec3(0.0f, 1.0f, 0.0f)); // worldUp
+
+        //// Calculate orthographic projection matrix
+        ////glm::mat4 projection = glm::ortho(-2.0f, 2.0f, -2.0f, 2.0f, 0.0f, 10.0f);
+        //
+        //// Calculate perspective projection matrix - ADDED
+        //glm::mat4 projection = glm::perspective(Maths::radians(80.0f), 1024.0f / 768.0f, 0.2f, 10.0f); //First value is the FOV
+
+        // Calculate view and projection matrices - ADDED
+        camera.calculateMatrices();
+
+        // Send MVP matrix to the vertex shader
+        /*glm::mat4 MVP = projection * view * model;
+        glUniformMatrix4fv(glGetUniformLocation(shaderID, "MVP"), 1, GL_FALSE, &MVP[0][0]);*/
+
+        ////Calculate the MVP matrix and send it to the vertex shader - ADDED
+        //glm::mat4 MVP = camera.projection * camera.view * model;
+        //glUniformMatrix4fv(glGetUniformLocation(shaderID, "MVP"), 1, GL_FALSE, &MVP[0][0]);
+
+        // Calculate view and projection matrices - ADDED, moves camera back
+        camera.eye = glm::vec3(0.0f, 0.0f, 5.0f);
+        camera.target = objects[0].position;
+        camera.calculateMatrices();
+
+        // Loop through cubes and draw each one - ADDED instead of calculate MVP
+        for (int i = 0; i < static_cast<unsigned int>(objects.size()); i++)
+        {
+            // Calculate the model matrix
+            glm::mat4 translate = Maths::translate(objects[i].position);
+            glm::mat4 scale = Maths::scale(objects[i].scale);
+            glm::mat4 rotate = Maths::rotate(objects[i].angle, objects[i].rotation);
+            glm::mat4 model = translate * rotate * scale;
+
+            // Calculate the MVP matrix
+            glm::mat4 MVP = camera.projection * camera.view * model;
+
+            // Send MVP matrix to the vertex shader
+            glUniformMatrix4fv(glGetUniformLocation(shaderID, "MVP"), 1, GL_FALSE, &MVP[0][0]);
+
+            // Draw the triangles
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+            glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(unsigned int), GL_UNSIGNED_INT, 0);
+        }
+
         // Draw the triangles
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
         glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(unsigned int), GL_UNSIGNED_INT, 0);

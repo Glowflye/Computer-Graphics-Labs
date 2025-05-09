@@ -1,0 +1,5 @@
+﻿  Lab06_3D_worlds.cpp
+  camera.cpp
+C:\Users\Tia\Documents\GitHub\Computer-Graphics-Labs\Lab06_3D_worlds\Lab06_3D_worlds.cpp(268,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Tia\Documents\GitHub\Computer-Graphics-Labs\Lab06_3D_worlds\Lab06_3D_worlds.cpp(302,27): warning C4018: '<': signed/unsigned mismatch
+  Lab06_3D_worlds.vcxproj -> C:\Users\Tia\Documents\GitHub\Computer-Graphics-Labs\Build\Debug\Lab06_3D_worlds.exe
